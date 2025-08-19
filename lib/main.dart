@@ -1,4 +1,5 @@
-import 'package:drivers_app/features/onboarding/languageSelect/language_select.dart';
+import 'package:drivers_app/features/login/login_screen.dart';
+// import 'package:drivers_app/features/onboarding/languageSelect/language_select.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -32,6 +33,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return const LanguageSelect();
+    // return const LanguageSelect();
+    return const LoginScreen();
   }
 }

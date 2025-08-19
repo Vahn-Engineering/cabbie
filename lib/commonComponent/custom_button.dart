@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class CommonButton extends StatelessWidget {
+class CustomButton extends StatelessWidget {
   final String text;
   final Function() onPressed;
   final String variant;
 
-  const CommonButton({
+  const CustomButton({
     super.key,
     required this.text,
     required this.onPressed,

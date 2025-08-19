@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:drivers_app/commonComponent/button.dart';
+import 'package:drivers_app/commonComponent/custom_button.dart';
 import 'package:drivers_app/features/onboarding/languageSelect/component/language_card.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -86,7 +86,7 @@ class _LanguageSelectState extends State<LanguageSelect> {
                 ],
               ),
 
-              CommonButton(
+              CustomButton(
                 text: "जारी रखें",
                 variant: "primary",
                 onPressed: () {
