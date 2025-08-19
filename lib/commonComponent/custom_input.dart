@@ -40,12 +40,12 @@ class _CustomInputState extends State<CustomInput> {
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             decoration: BoxDecoration(
               border: Border.all(
-                color: widget.errorText!.isNotEmpty
+                color: widget.errorText.isNotEmpty
                     ? Colors.red
                     : isFocused
                     ? Colors.black
                     : const Color(0xFFE2E2E2),
-                width: widget.errorText!.isNotEmpty ? 2 : 1,
+                width: widget.errorText.isNotEmpty ? 2 : 1,
               ),
               borderRadius: BorderRadius.circular(8),
             ),
@@ -56,10 +56,10 @@ class _CustomInputState extends State<CustomInput> {
                   "Mobile Number",
                   style: TextStyle(
                     fontSize: 14,
-                    color: widget.errorText!.isNotEmpty
+                    color: widget.errorText.isNotEmpty
                         ? Colors.red
                         : Colors.black,
-                    fontWeight: widget.errorText!.isNotEmpty
+                    fontWeight: widget.errorText.isNotEmpty
                         ? FontWeight.w500
                         : FontWeight.w400,
                   ),
@@ -80,7 +80,7 @@ class _CustomInputState extends State<CustomInput> {
           ),
         ),
 
-        Text(widget.errorText!, style: TextStyle(color: Colors.red)),
+        Text(widget.errorText, style: TextStyle(color: Colors.red)),
       ],
     );
   }
