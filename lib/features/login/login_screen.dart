@@ -29,7 +29,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                   child: Text(
                     "VAHN",
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900),
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
                   ),
                 ),
                 Container(
@@ -62,7 +62,8 @@ class LoginScreen extends StatelessWidget {
                               "Enter your mobile number to get started.",
                               style: TextStyle(
                                 fontSize: 16,
-                                fontWeight: FontWeight.w400,
+                                fontWeight: FontWeight.w200,
+                                color: Color(0xFF757575),
                               ),
                             ),
                           ],

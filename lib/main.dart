@@ -1,6 +1,7 @@
 import 'package:drivers_app/features/login/login_screen.dart';
 // import 'package:drivers_app/features/onboarding/languageSelect/language_select.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,8 +15,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Drivers App',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
+        textTheme: GoogleFonts.notoSansTextTheme(Theme.of(context).textTheme),
+        // .copyWith(
+        //   bodyLarge: GoogleFonts.notoSans(
+        //     fontSize: 20,
+        //     fontWeight: FontWeight.w600,
+        //   ),
+        //   titleLarge: GoogleFonts.notoSans(
+        //     fontSize: 22,
+        //     fontWeight: FontWeight.bold,
+        //   ),
+        // ),
       ),
       home: const MyHomePage(title: 'Drivers App'),
     );
