@@ -4,12 +4,107 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  bool _showBottomSheet = false;
+  String _bottomSheetType = ""; // 'terms' || 'privacy'
+
+  void updateBottomSheet(bool value, String type) {
+    setState(() {
+      _showBottomSheet = value;
+      _bottomSheetType = type;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomSheet: _showBottomSheet
+          ? BottomSheet(
+              onClosing: () {
+                updateBottomSheet(false, "");
+              },
+              enableDrag: false,
+              // backgroundColor: Color.fromARGB(255, 238, 234, 234),
+              backgroundColor: Colors.white,
+              builder: (context) {
+                return _bottomSheetType == "terms"
+                    ? ConstrainedBox(
+                        constraints: BoxConstraints(maxHeight: 400),
+                        child: Text("Terms and Conditions"),
+                      )
+                    : ConstrainedBox(
+                        constraints: BoxConstraints(maxHeight: 400),
+                        child: Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.only(bottom: 32),
+                          child: Column(
+                            spacing: 16,
+                            children: [
+                              Container(
+                                padding: EdgeInsets.all(8),
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.white,
+                                  border: Border.all(color: Color(0xFFE2E2E2)),
+                                ),
+                                child: SvgPicture.asset(
+                                  "assets/svg/close.svg",
+                                  width: 20,
+                                  height: 20,
+                                ),
+                              ),
+                              Container(
+                                width: double.infinity,
+                                color: Color(0xFFF5F5F5),
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      width: double.infinity,
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                        border: Border(
+                                          bottom: BorderSide(
+                                            color: Color(0xFFE2E2E2),
+                                          ),
+                                        ),
+                                      ),
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 16,
+                                        vertical: 24,
+                                      ),
+                                      child: Text(
+                                        "Enter OTP",
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      width: double.infinity,
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 16,
+                                        vertical: 24,
+                                      ),
+                                      child: Text("content"),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+              },
+            )
+          : null,
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
@@ -139,7 +234,8 @@ class LoginScreen extends StatelessWidget {
                       GestureDetector(
                         onTap: () {
                           if (kDebugMode) {
-                            print("Terms and Conditions pressed!");
+                            // print("Terms and Conditions pressed!");
+                            updateBottomSheet(true, "terms");
                           }
                         },
                         child: Text(
@@ -151,7 +247,8 @@ class LoginScreen extends StatelessWidget {
                       GestureDetector(
                         onTap: () {
                           if (kDebugMode) {
-                            print("Privacy Policy pressed!");
+                            // print("Privacy Policy pressed!");
+                            updateBottomSheet(true, "privacy");
                           }
                         },
                         child: Text(

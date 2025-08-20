@@ -63,6 +63,7 @@ flutter:
   assets: 
     - assets/svg/whatsapp.svg
     - assets/svg/logo.svg
+    - assets/svg/close.svg
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
