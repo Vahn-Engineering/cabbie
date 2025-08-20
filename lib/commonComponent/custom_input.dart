@@ -80,7 +80,9 @@ class _CustomInputState extends State<CustomInput> {
           ),
         ),
 
-        Text(widget.errorText, style: TextStyle(color: Colors.red)),
+        widget.errorText.isNotEmpty
+            ? Text(widget.errorText, style: TextStyle(color: Colors.red))
+            : SizedBox(),
       ],
     );
   }
